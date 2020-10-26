@@ -29,10 +29,19 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
+	display: flex;
+	justify-content: center;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 body {
 	line-height: 1;
+	height: 100vh;
 }
 
 ol, ul {
@@ -375,26 +384,12 @@ input, select, textarea {
 
 /* Audio */
 
-	.audio-container {
-		position: relative;
-		padding: 10% 0%;
-		margin-top: 28px;
-		height: 0;
-		overflow: hidden;
-		/*border: 3px solid #73AD21;*/
-	}
-
-	.audio-container iframe,
-	.audio-container object,
-	.audio-container embed {
-		position: absolute;
-		bottom: 50%;
-		left: 25%;
-		width: 50%;
-		height: 50%;
-		/*border: 3px solid #73AD21;*/
-	}
-
+.audio-container {
+	position: relative;
+	margin-top: 25px;
+	width: 50%;
+	/*border: 3px solid #73AD21;*/
+}
 
 /* Header */
 
@@ -561,8 +556,8 @@ input, select, textarea {
 		position: relative;
 		text-align: center;
 		top: -1em;
-		vertical-align: middle;
 		width: 90%;
+		vertical-align: middle;
 	}
 
 		#header h1 {
@@ -724,6 +719,9 @@ input, select, textarea {
 				}
 
 /* Button */
+				.align-right {
+					text-align: right;
+				}
 
 				.button{
 					text-decoration: none;
@@ -740,7 +738,6 @@ input, select, textarea {
 					border-radius: 3.75em;
 					cursor: pointer;
 					position: relative;
-					top: 70px;
 				}
 
 				.button:hover{
@@ -1022,27 +1019,20 @@ input, select, textarea {
 				font-size: 11pt;
 			}
 
+			.align-right {
+				text-align: center;
+				margin: 1em 0;
+			}
+
 		/* Audio */
 
-			.audio-container {
-				position: relative;
-				padding: 5% 0%;
-				margin-top: 10px;
-				height: 0;
-				overflow: hidden;
-				/*border: 3px solid #73AD21;*/
-			}
-
-			.audio-container iframe,
-			.audio-container object,
-			.audio-container embed {
-				position: absolute;
-				bottom: 50%;
-				left: 15%;
-				width: 70%;
-				height: 80%;
-				/*border: 3px solid #73AD21;*/
-			}
+		.audio-container {
+			position: relative;
+			margin-top: 5px;
+			width: 60%;
+			height: 70%;
+			/*border: 3px solid #73AD21;*/
+		}
 
 		/* BG */
 
@@ -1146,21 +1136,9 @@ input, select, textarea {
 
 			.audio-container {
 				position: relative;
-				padding: 10% 0%;
 				margin-top: 25px;
-				height: 0;
-				overflow: hidden;
-				/*border: 3px solid #73AD21;*/
-			}
-
-			.audio-container iframe,
-			.audio-container object,
-			.audio-container embed {
-				position: absolute;
-				bottom: 0%;
-				left: 0%;
-				width: 100%;
-				height: 100%;
+				width: auto;
+				height: auto;
 				/*border: 3px solid #73AD21;*/
 			}
 
@@ -1171,6 +1149,11 @@ input, select, textarea {
 			.button {
 				top: -25px;
 			}
+
+			.align-right {
+				text-align: center;
+			}
+
 
 
 		/* BG */
