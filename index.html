@@ -1,53 +1,40 @@
-<!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!doctype html>
 <html>
 	<head>
-		<title>Hypponix</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
-
-
-				<!-- Barre -->
-				<!-- Header -->
-					<header id="header">
-						<div class="align-right"><a class="button" href="TheWayEP.html">EP - The Way</a></div>
-
-						<h1>Hypponix</h1>
-						<p>Musician &nbsp;&bull;&nbsp; Geologist</p>
-						<nav>
-							<ul>
-								<li><a href="http://bit.ly/schypponix" class="icon fa-soundcloud"><span class="label">soundCloud</span></a></li>
-								<li><a href="http://bit.ly/instahypponix" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="http://bit.ly/fbhypponix" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<!--li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li-->
-								<li><a href="http://bit.ly/ythypponix" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
-							</ul>
-						</nav>
-							<iframe class="audio-container" width="560" height="315" src="https://www.youtube.com/embed/ECsN67V2kgI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</header>
-
-				<!-- Footer -->
-					<footer id="footer">
-					</footer>
-
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Slide 1</section>
+				<section>Slide 2</section>
 			</div>
 		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
 		</script>
 	</body>
 </html>
