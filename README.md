@@ -39,3 +39,4 @@ Credits:
 
 - Charlie Carpene
 - Etienne de Gail aka Klei0
+- Maxime Dewynter
