@@ -110,7 +110,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="md:min-h-[calc(100vh-60px)] relative flex items-center overflow-hidden bg-cover bg-center"
+      className="min-h-screen relative flex text-center md:text-left items-center overflow-hidden bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${imageProps.mobile.src}')`,
       }}
@@ -135,7 +135,7 @@ const Hero = () => {
               </motion.span>
             </h1>
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6"
               variants={itemVariants}
             >
               <span className="block">{descriptions.main.line1}</span>
@@ -144,16 +144,16 @@ const Hero = () => {
               <span className="block">{descriptions.main.line4}</span>
             </motion.p>
             <motion.div
-              className="flex flex-row justify-start space-y-3 sm:space-y-0 sm:space-x-4 text-white"
+              className="flex flex-row justify-center md:justify-normal space-x-10 text-white"
               variants={itemVariants}
             >
-              <Link href="https://soundcloud.com/hypponix" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <motion.button {...buttonAnimations} className="bg-primary flex items-center justify-center w-12 h-12 rounded-full">
+              <Link href="https://soundcloud.com/hypponix" target="_blank" rel="noopener noreferrer" className="w-auto">
+                <motion.button {...buttonAnimations} className="bg-primary flex items-center justify-center rounded-full">
                   <FaSoundcloud className="text-2xl" />
                 </motion.button>
               </Link>
-              <Link href="https://www.instagram.com/hypponix/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <motion.button {...buttonAnimations} className="bg-primary flex items-center justify-center w-12 h-12 rounded-full">
+              <Link href="https://www.instagram.com/hypponix/" target="_blank" rel="noopener noreferrer" className="w-auto">
+                <motion.button {...buttonAnimations} className="bg-primary flex items-center justify-center rounded-full">
                   <FaInstagram className="text-2xl" />
                 </motion.button>
               </Link>
