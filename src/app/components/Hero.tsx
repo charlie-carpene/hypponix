@@ -30,8 +30,7 @@ const Hero = () => {
     []
   );
 
-  const itemVariants = useMemo(
-    () => ({
+  const itemVariants = {
       hidden: { opacity: 0, x: "-50px" },
       visible: {
         opacity: 1,
@@ -41,40 +40,30 @@ const Hero = () => {
           ease: "easeOut",
         },
       },
-    }),
-    []
-  );
+    };
 
-  const buttonAnimations = useMemo(
-    () => ({
+  const buttonAnimations = {
       whileHover: { scale: 1.05 },
       whileTap: { scale: 0.95 },
-    }),
-    []
-  );
+    };
 
-  const titleContent = useMemo(
-    () => ({
+  const titleContent = {
       line1: "Hypponix",
-    }),
-    []
-  );
+    };
 
-  const descriptions = useMemo(
-    () => ({
-      main: {
-        line1: "The rave was built on energy",
-        line2: "and the excitement of it all",
-        line3: "and this desire to get lost",
-        line4: "it’s like a new era for me now….",
-      },
-      imageAlt: "I'm playing",
-    }),
-    []
-  );
+  const descriptions = {
+    main: {
+      line1: "The rave was built on energy",
+      line2: "and the excitement of it all",
+      line3: "and this desire to get lost",
+      line4: "it's like a new era for me now...",
+    },
+    imageAlt: "I'm playing",
+  };
+  
+    
 
-  const imageProps = useMemo(
-    () => ({
+  const imageProps = {
       mobile: {
         src: "/images/desktop-hypponix-profile.webp",
         width: 988,
@@ -91,9 +80,7 @@ const Hero = () => {
       }`,
       priority: true,
       onLoad: handleImageLoad,
-    }),
-    [isImageLoaded, handleImageLoad]
-  );
+    };
 
   return (
     <section
