@@ -3,16 +3,10 @@
 import { motion } from "framer-motion";
 
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { FaInstagram, FaSoundcloud } from "react-icons/fa";
 
 const Hero = () => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  const handleImageLoad = useCallback(() => {
-    setIsImageLoaded(true);
-  }, []);
-
   const containerVariants = useMemo(
     () => ({
       hidden: { opacity: 0 },
@@ -44,39 +38,14 @@ const Hero = () => {
     whileTap: { scale: 0.95 },
   };
 
-  const imageProps = {
-    mobile: {
-      src: "/images/desktop-hypponix-profile.webp",
-      width: 988,
-      height: 987,
-    },
-    desktop: {
-      src: "/images/desktop-hypponix-profile.webp",
-      width: 988,
-      height: 987,
-    },
-    style: { width: "100%", height: "auto" },
-    className: `rounded-lg shadow-xl ${
-      isImageLoaded ? "opacity-100" : "opacity-0"
-    }`,
-    priority: true,
-    onLoad: handleImageLoad,
-  };
-
   return (
     <section
       id="home"
       className="min-h-screen relative flex text-center md:text-left items-center overflow-hidden bg-cover bg-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${imageProps.mobile.src}')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url('/images/desktop-hypponix-profile.webp')`,
       }}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center hidden lg:block"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${imageProps.desktop.src}')`,
-        }}
-      ></div>
       <motion.div
         className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center relative z-10"
         variants={containerVariants}
