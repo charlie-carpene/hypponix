@@ -7,19 +7,7 @@ import { useCallback, useMemo, useState } from "react";
 import { FaSoundcloud, FaInstagram } from "react-icons/fa";
 
 
-interface TitleContent {
-  line1: string;
-}
 
-interface Descriptions {
-  main: {
-    line1: string;
-    line2: string;
-    line3: string;
-    line4: string;
-  };
-  imageAlt: string;
-}
 
 const Hero = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -65,14 +53,14 @@ const Hero = () => {
     []
   );
 
-  const titleContent: TitleContent = useMemo(
+  const titleContent = useMemo(
     () => ({
       line1: "Hypponix",
     }),
     []
   );
 
-  const descriptions: Descriptions = useMemo(
+  const descriptions = useMemo(
     () => ({
       main: {
         line1: "The rave was built on energy",
