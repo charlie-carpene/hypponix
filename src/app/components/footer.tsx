@@ -1,18 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 
-const FaSoundcloud = dynamic(() =>
-  import("react-icons/fa").then((mod) => mod.FaSoundcloud)
-);
-const FaInstagram = dynamic(() =>
-  import("react-icons/fa").then((mod) => mod.FaInstagram)
-);
-const FaArrowUp = dynamic(() =>
-  import("react-icons/fa").then((mod) => mod.FaArrowUp)
-);
+import { useEffect, useState } from "react";
+import { FaArrowUp, FaInstagram, FaSoundcloud } from "react-icons/fa";
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +44,7 @@ const Footer = () => {
   return (
     <motion.footer
       id="contact"
-      className="pb-10 md:pb-16"
+      className="py-8 md:py-20"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
