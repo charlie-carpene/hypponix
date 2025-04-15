@@ -2,12 +2,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
-interface MobileMenuProps {
+interface MenuProps {
   setIsMenuOpen: (isOpen: boolean) => void;
-  navItems: { href: string; label: string }[];
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ setIsMenuOpen, navItems }) => {
+const Menu: React.FC<MenuProps> = ({ setIsMenuOpen }) => {
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/#contact", label: "Contact" },
+  ];
+
   const menuVariants = {
     closed: { opacity: 0, x: "-100%" },
     open: { opacity: 1, x: 0 },
@@ -34,21 +39,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ setIsMenuOpen, navItems }) => {
             variants={linkVariants}
             transition={{ delay: 0.1 * index }}
           >
-            <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-primary transition-colors"
+            >
               {item.label}
             </Link>
           </motion.li>
         ))}
       </ul>
-
-      <motion.div
-        className="w-full px-4 mt-8"
-        variants={linkVariants}
-        transition={{ delay: 0.1 * navItems.length }}
-      >
-      </motion.div>
     </motion.div>
   );
 };
 
-export default MobileMenu;
+export default Menu;

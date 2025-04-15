@@ -2,53 +2,41 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const MobileMenu = dynamic(() => import("./MobileMenu"), { ssr: false });
+const Menu = dynamic(() => import("./Menu"), { ssr: false });
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
 
-  const updateScrollDirection = useCallback(() => {
+  useEffect(() => {
     let lastScrollY = window.scrollY;
-    return () => {
+    const threshold = 5;
+
+    const updateScrollDirection = () => {
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
-      if (
-        direction !== scrollDirection &&
-        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-      ) {
+      
+      if (Math.abs(scrollY - lastScrollY) > threshold) {
         setScrollDirection(direction);
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
     };
-  }, [scrollDirection]);
 
-  useEffect(() => {
-    const updateScroll = updateScrollDirection();
-    window.addEventListener("scroll", updateScroll);
-    return () => window.removeEventListener("scroll", updateScroll);
-  }, [updateScrollDirection]);
+    window.addEventListener("scroll", updateScrollDirection);
+    return () => window.removeEventListener("scroll", updateScrollDirection);
+  }, [scrollDirection]);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
-  const navItems = useMemo(
-    () => [
-      { href: ``, label: "home" },
-      { href: `/about`, label: "about" },
-      { href: `/#contact`, label: "contact" },
-    ],
-    []
-  );
-
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-primary shadow-sm shadow-secondary transition-all duration-500 ${
+        className={`sticky top-0 z-50 bg-white shadow-sm shadow-secondary transition-all duration-500 ${
           scrollDirection === "down" && !isMenuOpen
             ? "-translate-y-full"
             : "translate-y-0"
@@ -57,9 +45,9 @@ const Header = () => {
         <nav className="container mx-auto px-4 py-3 md:py-4">
           <div className="flex justify-between items-center">
             <Link
-              href={`/`}
+              href="/"
               className="text-2xl font-bold z-50 relative flex items-center"
-              aria-label="homeAriaLabel"
+              aria-label="Home"
             >
               <p className="ml-2 text-lg font-semibold hidden sm:inline">
                 HYPPONIX
@@ -68,9 +56,7 @@ const Header = () => {
             <button
               className="z-50 relative text-2xl w-auto"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={
-                isMenuOpen ? "closeMenuAriaLabel" : "openMenuAriaLabel"
-              }
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
@@ -82,9 +68,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      {isMenuOpen && (
-        <MobileMenu setIsMenuOpen={setIsMenuOpen} navItems={navItems} />
-      )}
+      {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
     </>
   );
 };
