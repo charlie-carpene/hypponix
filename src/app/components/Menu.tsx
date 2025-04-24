@@ -9,7 +9,7 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ setIsMenuOpen }) => {
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
+    { href: "/#about", label: "About" },
     { href: "/#contact", label: "Contact" },
   ];
 

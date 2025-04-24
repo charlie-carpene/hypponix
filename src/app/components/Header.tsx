@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    const threshold = 5;
+    const threshold = 3;
 
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
